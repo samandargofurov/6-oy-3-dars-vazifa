@@ -1,24 +1,25 @@
-import { useState } from 'react'
+import React, { useState } from "react";
 import './App.css'
 
-
 function App() {
-  const [isTurn, setisTurn] = useState(false)
+  const [spin, setSpin] = useState(false);
 
-  function isTurn() {
-    return (
-      <>
-
-      </>
-    )
-  }
+  const handleButtonClick = () => {
+    setTimeout(() => {
+      setSpin(!spin);
+    }, 2000);
+  };
 
   return (
     <>
-      <isTurn />
+      <div className="spinner-container mx-auto mt-5">
+        <div className={`spinner ${spin ? "spin" : ""}`} />
+        <button onClick={handleButtonClick} className="btn btn-primary">
+          Spin
+        </button>
+      </div>
     </>
   )
 }
 
-
-export default App;
+export default App
